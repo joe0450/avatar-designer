@@ -38,7 +38,7 @@ h1 {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -82,6 +82,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.active {
+  border-color: #646cff;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -93,4 +97,20 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.avatar-container {
+  height: 350px;
+  position: relative;
+}
+
+.avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-btns {
+  margin-top: 18px;
 }
