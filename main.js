@@ -1,24 +1,34 @@
 import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.js";
+import {createAvatar, optionValues} from "./avatar.js";
 
 document.querySelector("#app").innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
+    <h1>Avatar Designer</h1>
+    <p>
+      Upload your image or try one of the provided options.
     </p>
+    <div class="avatar-container">
+      <img class="avatar" id="app-avatar" value="/default-avatars/cat1.png" />
+    </div>
+    <div class="image-btns">
+      <button id="btn-1" class="image-btn" value="/default-avatars/cat1.png">Image 1</button>
+      <button id="btn-2" class="image-btn" value="/default-avatars/cat2.jpg">Image 2</button>
+      <button id="btn-3" class="image-btn" value="/default-avatars/cat3.png">Image 3</button>
+    </div>
+    <div class="app-inputs">
+      <label for="image-size">Adjust image size.</label><br />
+      <input value="${optionValues["image-size"]}" class="avatar-options" id="image-size" type="range" /><br />
+
+      <label for="border-thickness">Adjust border thickness.</label><br />
+      <input value="${optionValues["border-thickness"]}" class="avatar-options" id="border-thickness" type="range" /><br />
+
+      <label for="border-radius">Adjust border radius.</label><br />
+      <input value="${optionValues["border-radius"]}" class="avatar-options" id="border-radius" type="range" /><br />
+
+      <label for="border-color">Choose border color.</label><br />
+      <input value="${optionValues["border-color"]}" class="avatar-options" id="border-color" type="color" />
+    </div>
   </div>
 `;
 
-setupCounter(document.querySelector("#counter"));
+createAvatar();
